@@ -1,1 +1,4 @@
-web: uvicorn app:app --host 0.0.0.0 --port=${PORT : 5000}
+commands:
+ start:
+    description: Start the web server
+    command: uvicorn main:app --host 0.0.0.0 --port $PORT
