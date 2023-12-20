@@ -1,4 +1,5 @@
 import json
+import os
 from fastapi import FastAPI , File , UploadFile , HTTPException
 from roboflow import Roboflow
 from fastapi.responses import HTMLResponse  
@@ -14,6 +15,8 @@ project1 = rf.workspace().project("ssebowabrick")
 model1 = project1.version(1).model
 class PredictionInput(BaseModel):
     img : str
+
+port = int(os.environ.get("PORT", 8080))
 
 app = FastAPI()
 
